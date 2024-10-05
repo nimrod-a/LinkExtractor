@@ -2,32 +2,24 @@ import requests
 from bs4 import BeautifulSoup
 import pyfiglet
 
-'''
-Define a function get_urls(url) which searches a given page and
-returns a list of URLs. With each URL a list of keywords associated with
-this URL is returned.
-(Keywords is the link text splitted into words.)
-Hint: Have a look at https://pypi.python.org/pypi/beautifulsoup4 and
-https://requests.readthedocs.io/'''
-
 
 def get_urls():
-    pyparser = pyfiglet.figlet_format("PyParser")
+    pyparser = pyfiglet.figlet_format("linkExtractor")
     print(pyparser)
-    doc = pyfiglet.figlet_format("Searches a given page and returns a list of URLs. With each URL a list of keywords associated with this URL is returned.", font='term')
+    doc = pyfiglet.figlet_format(
+        "Simple script that searches a given page and extracts a list of linked URLs. With each URL a list of keywords associated with this URL is returned.", font='term')
     print(doc)
-    url = input("Enter the URL to parse: ")
+    url = input("Enter the URL to extract: ")
     keywords = []
     url_list = []
-   
 
-    # make request 
+    # make request
     if url.startswith('http'):
         r = requests.get(url)
     else:
         print("Please enter a valid URL:\nExample: https://website.com")
         return -1
-     
+
     print(f'Status Code: {r.status_code}')
 
     # parse html content
@@ -45,11 +37,13 @@ def get_urls():
     print_urls = input("Do you want to view the generated URL list? (y/n) ")
     if print_urls == "y" or print_urls == "Y":
         print(f'URLs: {url_list}')
-    
-    print_keywords = input("Do you want to view the generated Keywords? (y/n) ")
+
+    print_keywords = input(
+        "Do you want to view the generated Keywords? (y/n) ")
     if print_keywords == "y" or print_keywords == "Y":
-        print(f'Keywords: {keywords_list}')
-    
-    return url_list, keywords_list
+        print(f'Keywords: {keywords}')
+
+    return url_list, keywords
+
 
 get_urls()
