@@ -3,8 +3,8 @@ A simple Python script to extract a list of URLs and associated keywords from a 
 
 ## Usage
 
-1. Install requirements:
-$ pip install -r requirements.txt
+1. **Install requirements**:
+- pip install -r requirements.txt
 
-2. Run the script
-$ python3 linkExtractor.py 
+2. **Run the script**:
+- python3 linkExtractor.py 
