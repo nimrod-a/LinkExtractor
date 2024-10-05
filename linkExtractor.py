@@ -36,7 +36,7 @@ def get_urls():
 
     print_urls = input("Do you want to view the generated URL list? (y/n) ")
     if print_urls == "y" or print_urls == "Y":
-        print(f'URLs: {url_list}')
+        print(f'URLs: {url_list}\n')
 
     print_keywords = input(
         "Do you want to view the generated Keywords? (y/n) ")
